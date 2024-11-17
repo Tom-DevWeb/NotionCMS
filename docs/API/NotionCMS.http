@@ -1,0 +1,51 @@
+# NotionCMS
+
+###
+# group: Blocks
+# @name Retrieve block
+# Retrieves a Block object using the ID specified.
+GET {{NOTION_API_URL}}/blocks/{{NOTION_PAGE_ID}}
+Authorization: Bearer {{NOTION_TOKEN}}
+Notion-Version: {{NOTION_API_VERSION}}
+
+###
+# group: Blocks
+# @name Retrieve block children
+# Returns a paginated array of child block objects contained in the block using the ID specified. In order to receive a complete representation of a block, you may need to recursively retrieve the block children of child blocks.
+GET {{NOTION_API_URL}}/blocks/{{NOTION_PAGE_ID}}/children
+Authorization: Bearer {{NOTION_TOKEN}}
+Notion-Version: {{NOTION_API_VERSION}}
+
+###
+# group: Pages
+# @name Retrieve a page
+# Retrieves a Page object using the ID specified.
+# **This endpoint will not accurately return properties that exceed 25 references**
+# Do **not** use this endpoint if a page property includes more than 25 references to receive the full list of references. Instead, use the Retrieve a page property endpoint for the specific property to get its complete reference list.
+GET {{NOTION_API_URL}}/pages/{{NOTION_PAGE_ID}}
+Authorization: Bearer {{NOTION_TOKEN}}
+Notion-Version: {{NOTION_API_VERSION}}
+
+###
+# group: Databases
+# @name Retrieve a database
+# Retrieves a database object information that describes the structure and columns of a database for a provided database ID. The response adheres to any limits to an integration’s capabilities.
+GET {{NOTION_API_URL}}/databases/1410f910-607b-80ec-ab8f-cd7afb6488d1
+Authorization: Bearer {{NOTION_TOKEN}}
+Notion-Version: {{NOTION_API_VERSION}}
+
+###
+# group: Databases
+# @name Query a database
+# Retrieves a database object information that describes the structure and columns of a database for a provided database ID. The response adheres to any limits to an integration’s capabilities.
+GET {{NOTION_API_URL}}/databases/{{NOTION_DATABASE_ID}}/query
+Authorization: Bearer {{NOTION_TOKEN}}
+Notion-Version: {{NOTION_API_VERSION}}
+
+###
+# group: Search
+# @name Search by title
+# Searches all parent or child pages and databases that have been shared with an integration.
+POST {{NOTION_API_URL}}/search
+Authorization: Bearer {{NOTION_TOKEN}}
+Notion-Version: {{NOTION_API_VERSION}}
